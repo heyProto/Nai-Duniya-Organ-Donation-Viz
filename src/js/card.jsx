@@ -101,13 +101,13 @@ export default class toOrganCoverVizCard extends React.Component {
           <img src={data.cover_image.mobile} className="desktop-cover-image"/>
           <svg className="white-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs></defs>
-            <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fill-rule="evenodd" transform="translate(-572.000000, -181.000000)">
+            <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(-572.000000, -181.000000)">
               <polyline className="white-line-path" id="Path-2" stroke="#ffffff" strokeWidth="2" points="572 368.298507 577.655172 368.298507 600.275862 373 622.896552 373 654.942529 343.850746 680.390805 328.80597 676.62069 312.820896 682.275862 310 682.275862 300.597015 694.528736 293.074627 697.356322 270.507463 703.011494 259.223881 711.494253 231.014925 721.862069 195.283582 724.689655 184 736 189.641791"></polyline>
             </g>
           </svg>
           <svg className="green-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs></defs>
-            <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fill-rule="evenodd" transform="translate(-572.000000, -181.000000)">
+            <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(-572.000000, -181.000000)">
               <polyline className="green-line-path" id="Path-2" stroke="green" strokeWidth="3" points="572 368.298507 577.655172 368.298507 600.275862 373 622.896552 373 654.942529 343.850746 680.390805 328.80597 676.62069 312.820896 682.275862 310 682.275862 300.597015 694.528736 293.074627 697.356322 270.507463 703.011494 259.223881 711.494253 231.014925 721.862069 195.283582 724.689655 184 736 189.641791"></polyline>
             </g>
           </svg>

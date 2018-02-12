@@ -160,26 +160,27 @@
 }
 
 .organ-cover-area-mobile{
-  width: 100vw;
+  width: 300px;
+  height: 250px;
   overflow: hidden;
   position: relative;
 }
 
 .organ-cover-area-mobile .white-line{
-  left: 82px;
-  top: 156px;
+  left: 53px;
+  top: 19px;
   position: absolute;
 }
 
 .organ-cover-area-mobile .green-line{
-  left: 85px;
-  top: 160px;
+  left: 56px;
+  top: 22px;
   position: absolute;
 }
 
 .organ-cover-area-mobile .distance-text{
-  left: 145px;
-  top: 250px;
+  left: 105px;
+  top: 115px;
   font-size: 16px;
   color: white;
   position: absolute;
@@ -191,8 +192,8 @@
   font-size: 24px;
   color: white;
   position: absolute;
-  left: 245px;
-  top: 290px;
+  left: 175px;
+  top: 173px;
   font-family: cabin;
   font-weight: normal;
 }
@@ -201,8 +202,8 @@
   font-size: 24px;
   color: white;
   position: absolute;
-  left: 70px;
-  top: 150px;
+  left: 22px;
+  top: 22px;
   font-family: cabin;
   font-weight: normal;
 }
