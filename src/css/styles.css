@@ -164,6 +164,8 @@
   height: 250px;
   overflow: hidden;
   position: relative;
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 .organ-cover-area-mobile .white-line{
