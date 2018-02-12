@@ -63,7 +63,7 @@ export default class editToStinkCoverVizCard extends React.Component {
       case 1:
         this.setState((prevStep, prop) => {
           let dataJSON = prevStep.dataJSON;
-          dataJSON.data.count = formData;
+          dataJSON.data.cover_image = formData;
           return {
             dataJSON: dataJSON
           }
@@ -72,7 +72,7 @@ export default class editToStinkCoverVizCard extends React.Component {
       case 2:
         this.setState((prevState, prop) => {
           let dataJSON = prevState.dataJSON;
-          dataJSON.data.banner_image = formData;
+          dataJSON.data.map_info = formData;
           return {
             dataJSON: dataJSON
           }
@@ -104,18 +104,18 @@ export default class editToStinkCoverVizCard extends React.Component {
 
   renderSEO() {
     let d = this.state.dataJSON.data;
-    let seo_blockquote = '<blockquote>' + d.count.employed + d.count.killed + d.count.convicted +'</blockquote>'
+    let seo_blockquote = '<blockquote>'+ d.map_info.description +'</blockquote>'
     return seo_blockquote;
   }
 
   getFormData() {
     switch(this.state.step) {
       case 1:
-        return this.state.dataJSON.data.count;
+        return this.state.dataJSON.data.cover_image;
         break;
       case 2:
         // console.log(this.state.dataJSON.data.data_points, "4th step sample")
-        return this.state.dataJSON.data.banner_image;
+        return this.state.dataJSON.data.map_info;
         break;
     }
   }
@@ -124,11 +124,11 @@ export default class editToStinkCoverVizCard extends React.Component {
     switch(this.state.step){
       case 1:
         // console.log(this.state.schemaJSON, "1th step schema")
-        return this.state.schemaJSON.properties.data.properties.count;
+        return this.state.schemaJSON.properties.data.properties.cover_image;
         break;
       case 2:     
         // console.log(this.state.schemaJSON, "4th step schema")   
-        return this.state.schemaJSON.properties.data.properties.banner_image;
+        return this.state.schemaJSON.properties.data.properties.map_info;
         break;
     }
   }

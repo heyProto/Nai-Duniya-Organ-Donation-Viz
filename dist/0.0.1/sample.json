@@ -1,13 +1,16 @@
 {
   "data": {
-    "count": {
-      "employed_count": 2137,
-      "killed_count": 414,
-      "convicted_count": 2
+    "cover_image": {
+      "desktop": "organ_cover_background.png",
+      "mobile": "organ_cover_mobile.png"
     },
-    "banner_image": {
-      "desktop": "https://s3.ap-south-1.amazonaws.com/cdn.protograph/3dcab1e230b429d5a921/banner.png",
-      "mobile": ""
+    "map_info": {
+      "distance": "11 km",
+      "line_1_text": "सामान्य रास्ता के जरिए",
+      "line_1_time": "15 min",
+      "line_2_text": "ग्रीन कॉरिडोर के जरिए",
+      "line_2_time": "7 min",
+      "description": " बीते दो साल में इंदौर प्राधिकरण ने ग्रीन कॉरिडर की संख्या इतनी बढ़ा दी की शहर ने अब देश के बड़े शहरों को अंग दान में पछाड़ दिया है। बीते दो साल में इंदौर प्राधिकरण ने ग्रीन कॉरिडर की संख्या इतनी बढ़ा दी की शहर ने अब देश के बड़े शहरों को अंग दान में पछाड़ दिया है। बीते दो साल में इंदौर प्राधिकरण ने ग्रीन कॉरिडर की संख्या इतनी बढ़ा दी की शहर ने अब देश के बड़े शहरों को अंग दान में पछाड़ दिया है।"
     }
   }
 }

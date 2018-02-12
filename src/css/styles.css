@@ -80,25 +80,39 @@
 
 .distance-text{
   font-size: 16px;
-    color: white;
-    position: absolute;
-    left: 630px;
-    top: 280px;
-    font-family: cabin;
-    font-weight: bold;
+  color: white;
+  position: absolute;
+  left: 630px;
+  top: 280px;
+  font-family: cabin;
+  font-weight: bold;
 }
 
 .time-text{
   font-size: 24px;
-    color: white;
-    position: absolute;
-    left: 720px;
-    top: 320px;
-    font-family: cabin;
-    font-weight: normal;
+  color: white;
+  position: absolute;
+  left: 720px;
+  top: 320px;
+  font-family: cabin;
+  font-weight: normal;
 }
 
 .time-text span{
+  font-size: 14px;
+}
+
+.white-time-text{
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  left: 550px;
+  top: 180px;
+  font-family: cabin;
+  font-weight: normal;
+}
+
+.white-time-text span{
   font-size: 14px;
 }
 
@@ -145,6 +159,55 @@
   }
 }
 
+.organ-cover-area-mobile{
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.organ-cover-area-mobile .white-line{
+  left: 82px;
+  top: 156px;
+  position: absolute;
+}
+
+.organ-cover-area-mobile .green-line{
+  left: 85px;
+  top: 160px;
+  position: absolute;
+}
+
+.organ-cover-area-mobile .distance-text{
+  left: 145px;
+  top: 250px;
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  font-family: cabin;
+  font-weight: bold;
+}
+
+.organ-cover-area-mobile .time-text {
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  left: 245px;
+  top: 290px;
+  font-family: cabin;
+  font-weight: normal;
+}
+
+.organ-cover-area-mobile .white-time-text {
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  left: 70px;
+  top: 150px;
+  font-family: cabin;
+  font-weight: normal;
+}
+
+
 @media only screen and (max-width: 500px) {
   body{
     margin: 0px;
@@ -155,12 +218,22 @@
     overflow: hidden;
   }
 
+  .organ-cover-area .white-line{
+    left: 104px;
+  }
+
+  .organ-cover-area .green-line{
+    left: 107px;
+    top: 186px;
+  }
+
   .desktop-cover-image{
-    left: -490px !important;
+    left: -465px !important;
   }
 
   .organ-selection{
     left: -1px;
+    display: none;
   }
 
   .organ-selection-button{
@@ -215,11 +288,13 @@
     width: 80vw;
   }
 
-  .close-button{
-    opacity: 0.7;
-  }
-
-  .close-button img{
-    position: relative;
+  .white-time-text{
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    left: 24px;
+    top: 168px;
+    font-family: cabin;
+    font-weight: normal;
   }
 }
