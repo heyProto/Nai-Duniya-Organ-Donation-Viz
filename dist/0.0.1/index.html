@@ -3,7 +3,7 @@
   <head>
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toStinkCoverVizCard</title>
+    <title>toOrganCoverVizCard</title>
     <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="card.min.css">
     <script type="text/javascript">
@@ -33,12 +33,12 @@
 
   </head>
   <body style="margin:0px">
-    <div id="viz_card" style="min-height:430px"></div>
+    <div id="viz_card"></div>
     <script src="https://cdn.protograph.pykih.com/lib/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.protograph.pykih.com/lib/protograph-core.min.js"></script>
     <script src = "card.min.js"></script>
     <script type="text/javascript">
-    var x = new ProtoGraph.Card.toStinkCoverVizCard();
+    var x = new ProtoGraph.Card.toOrganCoverVizCard();
     function findGetParameter(parameterName) {
       var result = null,
         tmp = [],
