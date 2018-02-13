@@ -12,14 +12,14 @@
 
 .organ-cover-area .white-line{
   position: absolute;
-  top: 182px;
-  left: 571px;
+  top: 185px;
+  left: 576px;
 }
 
 .organ-cover-area .green-line{
   position: absolute;
-  top: 185px;
-  left: 574px;
+  top: 190px;
+  left: 571px;
 }
 
 .organ-selection{
@@ -89,7 +89,7 @@
 
 .time-text{
   font-size: 24px;
-  color: white;
+  color: #01EF36;
   position: absolute;
   left: 720px;
   top: 320px;
@@ -137,13 +137,15 @@
 .white-line-path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: whitedash 10s linear forwards;
+  animation: whitedash 5s infinite forwards;
+  animation-timing-function: cubic-bezier(1,1,1,1);
 }
 
 .green-line-path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: greendash 5s linear forwards;
+  animation: greendash 5s infinite forwards;
+  animation-timing-function: cubic-bezier(0,0,0,0.4);
 }
 
 @keyframes whitedash {
@@ -158,6 +160,13 @@
   }
 }
 
+.mobile-cover-image{
+  height: 282px;
+  width: 353px;
+  margin-top: -20px;
+  margin-left: -28px;
+}
+
 .organ-cover-area-mobile{
   width: 300px;
   height: 250px;
@@ -168,14 +177,14 @@
 }
 
 .organ-cover-area-mobile .white-line{
-  left: 53px;
-  top: 19px;
+  left: 62px;
+  top: 28px;
   position: absolute;
 }
 
 .organ-cover-area-mobile .green-line{
-  left: 56px;
-  top: 22px;
+  left: 57px;
+  top: 36px;
   position: absolute;
 }
 
@@ -191,7 +200,7 @@
 
 .organ-cover-area-mobile .time-text {
   font-size: 24px;
-  color: white;
+  color: #01EF36;
   position: absolute;
   left: 175px;
   top: 173px;
