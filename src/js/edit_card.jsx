@@ -29,8 +29,7 @@ export default class editToStinkCoverVizCard extends React.Component {
       optionalConfigJSON: this.state.optionalConfigJSON,
       optionalConfigSchemaJSON: this.state.optionalConfigSchemaJSON
     }
-    getDataObj["name"] = "The Organ Cover Viz Card";
-    // getDataObj["name"] = getDataObj.dataJSON.data.title_and_hint.title.substr(0,225); // Reduces the name to ensure the slug does not get too long
+    getDataObj["name"] = getDataObj.dataJSON.data.map_info.headline.substr(0,225); // Reduces the name to ensure the slug does not get too long
     return getDataObj;
   }
 
