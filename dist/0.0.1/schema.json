@@ -28,6 +28,11 @@
           "id": "/properties/data/properties/map_info",
           "type": "object",
           "properties": {
+            "headline": {
+              "id": "/properties/data/properties/map_info/properties/headline",
+              "type": "string",
+              "title": "Headline"
+            },
             "distance": {
               "id": "/properties/data/properties/map_info/properties/distance",
               "type": "string",
@@ -53,10 +58,20 @@
               "type": "string",
               "title": "Green Line Time"
             },
-            "description": {
-              "id": "/properties/data/properties/description",
+            "description_for_heart": {
+              "id": "/properties/data/properties/description_for_heart",
               "type": "string",
-              "title": "Description"
+              "title": "Description for heart"
+            },
+            "description_for_kidney": {
+              "id": "/properties/data/properties/description_for_kidney",
+              "type": "string",
+              "title": "Description for kidney"
+            },
+            "description_for_liver": {
+              "id": "/properties/data/properties/description_for_liver",
+              "type": "string",
+              "title": "Description for liver"
             }
           }
         }

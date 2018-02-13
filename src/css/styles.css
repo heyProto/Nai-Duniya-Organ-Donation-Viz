@@ -37,6 +37,7 @@
   font-size: 16px;
   color: white;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .tab-buttons{
@@ -66,7 +67,7 @@
 }
 
 .intro-text{
-  font-size: 14px;
+  font-size: 16px;
   color: white;
   line-height: 22px;
   font-family: "cabin";
@@ -216,6 +217,16 @@
   top: 22px;
   font-family: cabin;
   font-weight: normal;
+}
+
+.article-title{
+  position: absolute;
+  bottom: 20px;
+  font-family: cabin;
+  font-size: 32px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 

@@ -48,10 +48,47 @@ export default class toOrganCoverVizCard extends React.Component {
           fetchingData: false,
           dataJSON: card.data,
           optionalConfigJSON: opt_config.data,
-          optionalConfigSchemaJSON: opt_config_schema.data
+          optionalConfigSchemaJSON: opt_config_schema.data,
+          description: card.data.data.map_info.description_for_heart
         });
       }));
     }
+  }
+
+  handleHeartClick(e){
+    let elem = document.getElementsByClassName('organ-selection-button');
+    for (let i=0; i<elem.length; i++){
+      elem[i].classList.remove('active-tab')
+    }
+    document.getElementById('heart').classList.add('active-tab')
+    let data = this.state.dataJSON.data;
+    this.setState({
+      description: data.map_info.description_for_heart
+    })
+  }
+
+  handleKidneyClick(e){
+    let elem = document.getElementsByClassName('organ-selection-button');
+    for (let i=0; i<elem.length; i++){
+      elem[i].classList.remove('active-tab')
+    }
+    document.getElementById('kidney').classList.add('active-tab')
+    let data = this.state.dataJSON.data;
+    this.setState({
+      description: data.map_info.description_for_kidney
+    })
+  }
+
+  handleLiverClick(e){
+    let elem = document.getElementsByClassName('organ-selection-button');
+    for(let i=0; i<elem.length; i++){
+      elem[i].classList.remove('active-tab')
+    }
+    document.getElementById('liver').classList.add('active-tab')
+    let data = this.state.dataJSON.data;
+    this.setState({
+      description: data.map_info.description_for_liver
+    })
   }
 
   renderCol16() {
@@ -59,9 +96,9 @@ export default class toOrganCoverVizCard extends React.Component {
       return(<div>Loading</div>)
     } else {
       let data = this.state.dataJSON.data;
-      console.log(data, "data")
       return(
         <div className="organ-cover-area">
+          <div className="article-title">{data.map_info.headline}</div>
           <div className="white-time-text"><span>{data.map_info.line_1_text}</span><br/>{data.map_info.line_1_time}</div>
           <img src={data.cover_image.desktop} className="desktop-cover-image"/>
           <svg className="white-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -91,14 +128,13 @@ export default class toOrganCoverVizCard extends React.Component {
             </g>
           </svg>
           <div className="organ-selection">
-            <div className="organ-selection-button">दिल</div>
-            <div className="organ-selection-button">किडनी</div>
-            <div className="organ-selection-button">लीवर</div>
-            <div className="organ-selection-button mobile-more-info-button"><span className="info-icon">i</span></div>
+            <div id="heart" className="organ-selection-button active-tab" onClick={(e)=>{ this.handleHeartClick(e) }}>दिल</div>
+            <div id="kidney" className="organ-selection-button" onClick={(e)=>{ this.handleKidneyClick(e) }}>किडनी</div>
+            <div id="liver" className="organ-selection-button" onClick={(e)=>{ this.handleLiverClick(e) }}>लीवर</div>
           </div>
           <div className="distance-text">{data.map_info.distance}</div>
           <div className="time-text"><span>{data.map_info.line_2_text}</span><br/>{data.map_info.line_2_time}</div>
-          <div className="intro-text">{data.map_info.description}</div>
+          <div className="intro-text">{this.state.description}</div>
         </div>
       )
     }
