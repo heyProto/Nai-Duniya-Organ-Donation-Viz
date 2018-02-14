@@ -4,7 +4,7 @@
   height: 430px;
 }
 
-.organ-cover-area img{
+.desktop-cover-image{
   top: 0px;
   left: 0px;
   z-index: -1;
@@ -20,6 +20,13 @@
   position: absolute;
   top: 190px;
   left: 571px;
+}
+
+#white-circle {
+  left: 200px;
+  top: 100px;
+  position: absolute;
+  z-index: 100;
 }
 
 .organ-selection{
@@ -135,21 +142,25 @@
   color: black;
 }
 
-.white-line-path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: whitedash 5s infinite forwards;
-  animation-timing-function: cubic-bezier(1,1,1,1);
-}
+/*.white-line-path {*/
+  /*stroke-dasharray: ;*/
+  
+  /*transition: stroke-dashoffset 2s linear;*/
+  /*animation: whitedash 5s linear infinite forwards;*/
+  /*animation-timing-function: cubic-bezier(1,1,1,1);*/
+/*}*/
 
-.green-line-path {
+/*.green-line-path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: greendash 5s infinite forwards;
+  animation: greendash 5s 1 forwards;
   animation-timing-function: cubic-bezier(0,0,0,0.4);
 }
 
 @keyframes whitedash {
+  from {
+    stroke-dashoffset: 1000;
+  }
   to {
     stroke-dashoffset: 0;
   }
@@ -158,6 +169,58 @@
 @keyframes greendash {
   to {
     stroke-dashoffset: 0;
+  }
+}
+*/
+.white-ball{  
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  z-index: 100;
+  background-color: transparent;    
+  offset-path: path('M576 364 583 364 604 369 623 369 649.942529 343.567164 675.390805 328.522388 671.62069 312.537313 677.275862 309.716418 677.275862 300.313433 689.528736 292.791045 692.356322 270.223881 698.011494 258.940299 706.494253 230.731343 716.862069 195 719 187 731 187');
+  offset-distance: 0%;
+  animation: whiteball 5s linear infinite forwards;
+  transform: rotate(59deg);
+  /*animation-timing-function: cubic-bezier(1,1,1,1);*/
+}
+
+.ambulance {
+  top: 0px;
+  position: absolute;
+  z-index: 100;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.green-ball{
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  z-index: 100;
+  background-color: transparent;  
+  offset-path: path('M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195');
+  offset-distance: 0%;
+  transform: rotate(59deg);
+  /*animation: greenball 2.5s linear infinite forwards;*/
+}
+
+@keyframes whiteball {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes greenball {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
   }
 }
 
