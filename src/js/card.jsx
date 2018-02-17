@@ -185,8 +185,8 @@ export default class toOrganCoverVizCard extends React.Component {
               </path>
             </g>
           </svg>
-          <img className="white-ball" src="amb-icon.png"/>
-          <img className="hospital" src="hospital-icon.png"/>
+          <img className="white-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
+          <img className="hospital" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/hospital-icon.png"/>
           <div className="source-location">अस्पताल</div>
           <svg className="green-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -208,8 +208,8 @@ export default class toOrganCoverVizCard extends React.Component {
                 </g>
             </g>
           </svg>
-          <img className="green-ball" src="amb-icon.png"/>
-          <img className="airport" src="airport-icon.png"/>
+          <img className="green-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
+          <img className="airport" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/airport-icon.png"/>
           <div className="destination-location">हवाई अड्डा</div>
           <div className="distance-text">{data.map_info.distance}</div>
           <div className="time-text"><span>{data.map_info.line_2_text}</span><br/>{data.map_info.line_2_time}</div>
@@ -219,7 +219,7 @@ export default class toOrganCoverVizCard extends React.Component {
             <div className="button-text" onClick={(e) => this.handleClick(e)}><strong>{data.introduction.button_text}</strong></div>
           </div>
           <div id="" className="human-body">
-            <img src="human-body.png" className="body-img"/>
+            <img src="human-body.png" className="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/body-img"/>
             <div className="organ-selection">
               <div id="heart" className="organ-selection-button active-tab" onClick={(e)=>{ this.handleHeartClick(e) }}>दिल</div>
               <div id="kidney" className="organ-selection-button" onClick={(e)=>{ this.handleKidneyClick(e) }}>किडनी</div>
@@ -248,8 +248,8 @@ export default class toOrganCoverVizCard extends React.Component {
               </path>
             </g>
           </svg>
-          <img className="white-ball" src="amb-icon.png"/>
-          <img className="hospital" src="hospital-icon.png"/>
+          <img className="white-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
+          <img className="hospital" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/hospital-icon.png"/>
           <div className="source-location">अस्पताल</div>
           <svg className="green-line" width="116px" height="142px" viewBox="0 0 116 142" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -271,8 +271,8 @@ export default class toOrganCoverVizCard extends React.Component {
                 </g>
             </g>
           </svg>
-          <img className="green-ball" src="amb-icon.png"/>
-          <img className="airport" src="airport-icon.png"/>
+          <img className="green-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
+          <img className="airport" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/airport-icon.png"/>
           <div className="destination-location">हवाई अड्डा</div>
           <div className="distance-text">{data.map_info.distance}</div>
           <div className="time-text"><span>{data.map_info.line_2_text}</span><br/>{data.map_info.line_2_time}</div>
