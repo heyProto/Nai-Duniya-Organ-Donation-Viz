@@ -219,7 +219,7 @@ export default class toOrganCoverVizCard extends React.Component {
             <div className="button-text" onClick={(e) => this.handleClick(e)}><strong>{data.introduction.button_text}</strong></div>
           </div>
           <div id="" className="human-body">
-            <img src="human-body.png" className="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/body-img"/>
+            <img src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/human-body.png" className="body-img"/>
             <div className="organ-selection">
               <div id="heart" className="organ-selection-button active-tab" onClick={(e)=>{ this.handleHeartClick(e) }}>दिल</div>
               <div id="kidney" className="organ-selection-button" onClick={(e)=>{ this.handleKidneyClick(e) }}>किडनी</div>
