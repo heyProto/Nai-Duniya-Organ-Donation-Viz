@@ -29,7 +29,7 @@ export default class editToStinkCoverVizCard extends React.Component {
       optionalConfigJSON: this.state.optionalConfigJSON,
       optionalConfigSchemaJSON: this.state.optionalConfigSchemaJSON
     }
-    getDataObj["name"] = getDataObj.dataJSON.data.map_info.headline.substr(0,225); // Reduces the name to ensure the slug does not get too long
+    getDataObj["name"] = getDataObj.dataJSON.data.introduction.title.substr(0,225); // Reduces the name to ensure the slug does not get too long
     return getDataObj;
   }
 
@@ -50,7 +50,8 @@ export default class editToStinkCoverVizCard extends React.Component {
           schemaJSON: schema.data,
           optionalConfigJSON: opt_config.data,
           optionalConfigSchemaJSON: opt_config_schema.data,
-          uiSchemaJSON: uiSchema.data
+          uiSchemaJSON: uiSchema.data,
+          description: card.data.data.organ_description.description_for_heart
         }
         this.setState(stateVars);
       }));
@@ -71,7 +72,25 @@ export default class editToStinkCoverVizCard extends React.Component {
       case 2:
         this.setState((prevState, prop) => {
           let dataJSON = prevState.dataJSON;
+          dataJSON.data.introduction = formData;
+          return {
+            dataJSON: dataJSON
+          }
+        })
+        break;
+      case 3:
+        this.setState((prevState, prop) => {
+          let dataJSON = prevState.dataJSON;
           dataJSON.data.map_info = formData;
+          return {
+            dataJSON: dataJSON
+          }
+        })
+        break;
+      case 4:
+        this.setState((prevState, prop) => {
+          let dataJSON = prevState.dataJSON;
+          dataJSON.data.organ_description = formData;
           return {
             dataJSON: dataJSON
           }
@@ -83,13 +102,15 @@ export default class editToStinkCoverVizCard extends React.Component {
    onSubmitHandler({formData}) {
     switch(this.state.step) {
       case 1:
+      case 2:
+      case 3:
         this.setState((prevStep, prop) => {
           return {
             step: prevStep.step + 1
           }
         });
         break;
-      case 2:
+      case 4:
         if (typeof this.props.onPublishCallback === "function") {
           this.setState({ publishing: true });
           let publishCallback = this.props.onPublishCallback();
@@ -103,7 +124,7 @@ export default class editToStinkCoverVizCard extends React.Component {
 
   renderSEO() {
     let d = this.state.dataJSON.data;
-    let seo_blockquote = '<blockquote>'+ d.map_info.description +'</blockquote>'
+    let seo_blockquote = '<blockquote>'+ d.introduction.title + d.introduction.description +'</blockquote>'
     return seo_blockquote;
   }
 
@@ -113,8 +134,15 @@ export default class editToStinkCoverVizCard extends React.Component {
         return this.state.dataJSON.data.cover_image;
         break;
       case 2:
+        return this.state.dataJSON.data.introduction;
+        break;
+      case 3:
         // console.log(this.state.dataJSON.data.data_points, "4th step sample")
         return this.state.dataJSON.data.map_info;
+        break;
+      case 4:
+        // console.log(this.state.dataJSON.data.data_points, "4th step sample")
+        return this.state.dataJSON.data.organ_description;
         break;
     }
   }
@@ -125,9 +153,17 @@ export default class editToStinkCoverVizCard extends React.Component {
         // console.log(this.state.schemaJSON, "1th step schema")
         return this.state.schemaJSON.properties.data.properties.cover_image;
         break;
-      case 2:     
+      case 2:
+        // console.log(this.state.schemaJSON, "1th step schema")
+        return this.state.schemaJSON.properties.data.properties.introduction;
+        break;
+      case 3:     
         // console.log(this.state.schemaJSON, "4th step schema")   
         return this.state.schemaJSON.properties.data.properties.map_info;
+        break;
+      case 4:     
+        // console.log(this.state.schemaJSON, "4th step schema")   
+        return this.state.schemaJSON.properties.data.properties.organ_description;
         break;
     }
   }
@@ -135,9 +171,11 @@ export default class editToStinkCoverVizCard extends React.Component {
   showLinkText() {
     switch(this.state.step) {
       case 1:
+      case 2:
+      case 3:
         return '';
         break;
-      case 2:
+      case 4:
         return '< Back';
         break;
     }
@@ -146,9 +184,11 @@ export default class editToStinkCoverVizCard extends React.Component {
   showButtonText() {
     switch(this.state.step) {
       case 1:
+      case 2:
+      case 3:
         return 'Next';
         break;
-      case 2:
+      case 4:
         return 'Publish';
         break;
     }
@@ -158,6 +198,8 @@ export default class editToStinkCoverVizCard extends React.Component {
     switch(this.state.step) {
       case 1:
       case 2:
+      case 3:
+      case 4:
         return {}
         break;
       default:
@@ -240,6 +282,7 @@ export default class editToStinkCoverVizCard extends React.Component {
                     schemaJSON={this.state.schemaJSON}
                     optionalConfigJSON={this.state.optionalConfigJSON}
                     optionalConfigSchemaJSON={this.state.optionalConfigSchemaJSON}
+                    desc={this.state.description}
                   />
                 </div>
               </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:300');
+
 .organ-cover-area{
   position: relative;
   width: 1260px;
@@ -12,39 +14,47 @@
 
 .organ-cover-area .white-line{
   position: absolute;
-  top: 185px;
-  left: 576px;
+  top: 152px;
+  left: 148px;
 }
 
 .organ-cover-area .green-line{
   position: absolute;
-  top: 190px;
-  left: 571px;
-}
-
-#white-circle {
-  left: 200px;
-  top: 100px;
-  position: absolute;
-  z-index: 100;
+  top: 161px;
+  left: 143px;
 }
 
 .organ-selection{
   position: absolute;
-  top: 147px;
-  left: 225px;
+  top: 165px;
+  left: 692px;
 }
 
 .organ-selection-button{
   border: 1px solid white;
-  padding: 5px 10px;
+  padding: 3px 10px;
   width: 100px;
-  background: black;
-  margin-bottom: 37px;
+  background: #0061A1;
+  margin-bottom: 48px;
   font-size: 16px;
   color: white;
   box-sizing: border-box;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+.organ-description{
+  position: absolute;
+  color: white;
+  top: 120px;
+  width: 300px;
+  right: 70px;
+  font-family: 'Hind', sans-serif;
+}
+
+#liver {
+  margin-top: -4px;
+  margin-left: -2px;
 }
 
 .tab-buttons{
@@ -77,32 +87,97 @@
   font-size: 16px;
   color: white;
   line-height: 22px;
-  font-family: "cabin";
-  width: 240px;
-  position: absolute;
+  font-family: 'Hind', sans-serif;
+  width: 700px;
+  margin-bottom: 20px;
+  /*position: absolute;
   right: 70px;
-  bottom: 85px;
+  top: 165px;*/
   font-weight: 100;
+}
+
+.intro-text-title{
+  font-size: 22px;
+  color: white;
+  line-height: 22px;
+  font-family: 'Hind', sans-serif;
+  margin-bottom: 20px;
+  /*position: absolute;
+  left: 492px;
+  top: 120px;*/
+}
+
+.button-text{
+  border: 1px solid white;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  color: #0061A1;
+  width: 130px;
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+  border-radius: 5px;
+  background-color: white;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 0.5px
+}
+
+.intro-div{
+  position: absolute;
+  top: 120px;
+  left: 492px;
+}
+
+.airport{
+  position: absolute;
+  left: 113px;
+  top: 304px;
+}
+
+.source-location{
+  position: absolute;
+  font-family: 'Hind', sans-serif;
+  color: white;
+  font-size: 16px;
+  left: 59px;
+  top: 326px;
+}
+
+.hospital{
+  position: absolute;
+  left: 300px;
+  top: 124px;
+}
+
+.destination-location{
+  position: absolute;
+  font-family: 'Hind', sans-serif;
+  color: white;
+  font-size: 16px;
+  left: 337px;
+  top: 142px;
 }
 
 .distance-text{
   font-size: 16px;
   color: white;
   position: absolute;
-  left: 630px;
-  top: 280px;
-  font-family: cabin;
+  left: 200px;
+  top: 240px;
+  font-family: 'Hind', sans-serif;
   font-weight: bold;
 }
 
 .time-text{
   font-size: 24px;
-  color: #01EF36;
+  color: #00FF83;
   position: absolute;
-  left: 720px;
-  top: 320px;
-  font-family: cabin;
+  left: 280px;
+  top: 340px;
+  font-family: 'Hind', sans-serif;
   font-weight: normal;
+  line-height: 25px;
 }
 
 .time-text span{
@@ -113,33 +188,25 @@
   font-size: 24px;
   color: white;
   position: absolute;
-  left: 550px;
-  top: 180px;
-  font-family: cabin;
+  left: 95px;
+  top: 128px;
+  font-family: 'Hind', sans-serif;
   font-weight: normal;
+  line-height: 25px;
 }
 
 .white-time-text span{
   font-size: 14px;
 }
 
-.mobile-more-info-button{
-  display: none;
+.body-img{
+  position: absolute;
+  top: 120px;
+  left: 500px;
 }
 
-.mobile-modal-div{
+.human-body{
   display: none;
-}
-
-.info-icon{
-  background: white;
-  border-radius: 50px;
-  width: 20px;
-  height: 20px;
-  padding: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: black;
 }
 
 /*.white-line-path {*/
@@ -173,8 +240,8 @@
 }
 */
 .white-ball{  
-  left: 0px;
-  top: 0px;
+  left: -428px;
+  top: -35px;
   position: absolute;
   z-index: 100;
   background-color: transparent;    
@@ -185,18 +252,9 @@
   /*animation-timing-function: cubic-bezier(1,1,1,1);*/
 }
 
-.ambulance {
-  top: 0px;
-  position: absolute;
-  z-index: 100;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
 .green-ball{
-  left: 0px;
-  top: 0px;
+  left: -424px;
+  top: -34px;
   position: absolute;
   z-index: 100;
   background-color: transparent;  
@@ -258,17 +316,17 @@
   font-size: 16px;
   color: white;
   position: absolute;
-  font-family: cabin;
+  font-family: 'Hind', sans-serif;
   font-weight: bold;
 }
 
 .organ-cover-area-mobile .time-text {
   font-size: 24px;
-  color: #01EF36;
+  color: #00FF83;
   position: absolute;
   left: 175px;
   top: 173px;
-  font-family: cabin;
+  font-family: 'Hind', sans-serif;
   font-weight: normal;
 }
 
@@ -278,14 +336,14 @@
   position: absolute;
   left: 22px;
   top: 22px;
-  font-family: cabin;
+  font-family: 'Hind', sans-serif;
   font-weight: normal;
 }
 
 .article-title{
   position: absolute;
   bottom: 20px;
-  font-family: cabin;
+  font-family: 'Hind', sans-serif;
   font-size: 32px;
   color: white;
   padding-left: 20px;
@@ -379,7 +437,7 @@
     position: absolute;
     left: 24px;
     top: 168px;
-    font-family: cabin;
+    font-family: 'Hind', sans-serif;
     font-weight: normal;
   }
 }
