@@ -126,6 +126,13 @@ export default class toOrganCoverVizCard extends React.Component {
     document.getElementsByClassName('human-body')[0].style.display = "block"
   }
 
+  handleMobileClick(e){
+    document.getElementById('mobile-intro-div').style.top =0;
+    document.getElementById('mobile-intro-div').style.position = 'absolute';
+    document.getElementById('mobile-intro-div').style.zIndex = 100;
+
+  }
+
   handleHeartClick(e){
     let elem = document.getElementsByClassName('organ-selection-button');
     for (let i=0; i<elem.length; i++){
@@ -230,38 +237,50 @@ export default class toOrganCoverVizCard extends React.Component {
       return (<div>Loading</div>)
     } else {
        let data = this.state.dataJSON.data;
-      return(
+        return(
         <div className="organ-cover-area-mobile">
           <div className="white-time-text"><span>{data.map_info.line_1_text}</span><br/>{data.map_info.line_1_time}</div>
           <img src={data.cover_image.mobile} className="mobile-cover-image"/>
-          <svg className="white-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <svg className="white-line" width="116px" height="142px" viewBox="0 0 116 142" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs></defs>
-            <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(-576.000000, -185.000000)">
-              <polyline className="white-line-path" id="Path-2-Copy-2" stroke="#FFFFFF" strokeWidth="3" points="576 364 583 364 604 369 623 369 649.942529 343.567164 675.390805 328.522388 671.62069 312.537313 677.275862 309.716418 677.275862 300.313433 689.528736 292.791045 692.356322 270.223881 698.011494 258.940299 706.494253 230.731343 716.862069 195 719 187 731 187"></polyline>
+            <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(0.000000, 0.000000)">
+              <path className="white-line-path" id="path-2" stroke="#FFFFFF" strokeWidth="3" d="M0 122.538462 4.83225806 122.538462 19.3290323 126 32.4451613 126 51.0441973 108.392652 68.6117167 97.9770379 66.0091212 86.9104478 69.9130145 84.9575201 69.9130145 78.4477612 78.3714498 73.2399541 80.3233964 57.6165327 84.2272896 49.804822 90.0831294 30.2755454 97.240267 5.53846154 98.716129 0 107 0" strokeDasharray="283.0320129394531, 283.0320129394531" strokeDashoffset="283.0320129394531">
+              </path>
             </g>
           </svg>
-          <svg className="green-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <img className="white-ball" src="amb-icon.png"/>
+          <img className="hospital" src="hospital-icon.png"/>
+          <div className="source-location">अस्पताल</div>
+          <svg className="green-line" width="116px" height="142px" viewBox="0 0 116 142" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <polyline className="green-line-path" id="path-1" points="575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195"></polyline>
-              <filter x="-5.5%" y="-3.6%" width="111.0%" height="109.4%" filterUnits="objectBoundingBox" id="filter-2">
-                  <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
-                  <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
-                  <feMorphology radius="1.5" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
-                  <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
-                  <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
-                  <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-                  <feColorMatrix values="0 0 0 0 0.0117647059   0 0 0 0 0.933333333   0 0 0 0 0.219607843  0 0 0 0.543195199 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+              <path className="green-line-path" id="path-1" d="M0.333658854 128.675354 4.24183953 128.675354 19.8745622 131.924465 35.5072849 131.924465 57.6536421 111.779977 75.2404551 101.382822 72.6350013 90.3358452 76.543182 88.3863787 76.543182 81.8881569 85.0109068 76.6895794 86.9649972 61.0938472 90.8731778 53.295981 96.7354488 33.8013157 103.900447 9.10807292 104.686849 7.03483073 107.451172 7.03483073"></path>
+              <filter x="-7.9%" y="-5.2%" width="115.9%" height="113.6%" filterUnits="objectBoundingBox" id="filter-2">
+                <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+                <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+                <feMorphology radius="1.5" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+                <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+                <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+                <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                <feColorMatrix values="0 0 0 0 0.330516582   0 0 0 0 0.330516582   0 0 0 0 0.330516582  0 0 0 0.543195199 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
               </filter>
             </defs>
-            <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fill-rule="evenodd" transform="translate(-571.000000, -191.000000)">
-                <g id="Path-2-Copy">
+            <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                <g id="Path-2">
                     <use fill="black" fillOpacity="1" filter="url(#filter-2)" xlinkHref="#path-1"></use>
-                    <use stroke="#01EF36" strokeWidth="3" xlinkHref="#path-1"></use>
+                    <use stroke="#00FF83" strokeWidth="3" xlinkHref="#path-1"></use>
                 </g>
             </g>
           </svg>
+          <img className="green-ball" src="amb-icon.png"/>
+          <img className="airport" src="airport-icon.png"/>
+          <div className="destination-location">हवाई अड्डा</div>
           <div className="distance-text">{data.map_info.distance}</div>
           <div className="time-text"><span>{data.map_info.line_2_text}</span><br/>{data.map_info.line_2_time}</div>
+          <div id="mobile-intro-div" className="mobile-intro-div">
+            <div className="intro-text-title">{data.introduction.title}</div>
+            <div className="intro-text">{data.introduction.description}</div>
+          </div>
+          <div id="mobile-button" className="button-text" onClick={(e) => this.handleMobileClick(e)}><strong>{data.introduction.button_text}</strong></div>
         </div>
       )
     }

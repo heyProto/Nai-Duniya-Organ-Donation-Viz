@@ -209,36 +209,6 @@
   display: none;
 }
 
-/*.white-line-path {*/
-  /*stroke-dasharray: ;*/
-  
-  /*transition: stroke-dashoffset 2s linear;*/
-  /*animation: whitedash 5s linear infinite forwards;*/
-  /*animation-timing-function: cubic-bezier(1,1,1,1);*/
-/*}*/
-
-/*.green-line-path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: greendash 5s 1 forwards;
-  animation-timing-function: cubic-bezier(0,0,0,0.4);
-}
-
-@keyframes whitedash {
-  from {
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes greendash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-*/
 .white-ball{  
   left: -428px;
   top: -35px;
@@ -283,10 +253,7 @@
 }
 
 .mobile-cover-image{
-  height: 282px;
-  width: 353px;
-  margin-top: -20px;
-  margin-left: -28px;
+  
 }
 
 .organ-cover-area-mobile{
@@ -299,21 +266,27 @@
 }
 
 .organ-cover-area-mobile .white-line{
-  left: 62px;
+  left: 87px;
   top: 28px;
   position: absolute;
 }
 
 .organ-cover-area-mobile .green-line{
-  left: 57px;
-  top: 36px;
+  left: 87px;
+  top: 30px;
   position: absolute;
 }
 
+.organ-cover-area-mobile .white-line-path{
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
 .organ-cover-area-mobile .distance-text{
-  left: 105px;
-  top: 115px;
-  font-size: 16px;
+  left: 100px;
+  top: 90px;
+  font-size: 14px;
   color: white;
   position: absolute;
   font-family: 'Hind', sans-serif;
@@ -321,23 +294,124 @@
 }
 
 .organ-cover-area-mobile .time-text {
-  font-size: 24px;
+  font-size: 14px;
   color: #00FF83;
   position: absolute;
   left: 175px;
-  top: 173px;
+  top: 144px;
   font-family: 'Hind', sans-serif;
   font-weight: normal;
+  line-height: 18px;
 }
 
 .organ-cover-area-mobile .white-time-text {
-  font-size: 24px;
+  font-size: 14px;
   color: white;
   position: absolute;
   left: 22px;
   top: 22px;
   font-family: 'Hind', sans-serif;
   font-weight: normal;
+  line-height: 18px;
+}
+
+.organ-cover-area-mobile .hospital{
+  position: absolute;
+  left: 67px;
+  top: 140px;
+  height: 25px;
+}
+
+.organ-cover-area-mobile .airport{
+  position: absolute;
+  left: 193px;
+  top: 15px;
+  height: 25px;
+}
+
+.organ-cover-area-mobile .source-location{
+  position: absolute;
+  font-family: 'Hind', sans-serif;
+  color: white;
+  font-size: 12px;
+  left: 21px;
+  top: 151px;
+}
+
+.organ-cover-area-mobile .destination-location{
+  position: absolute;
+  font-family: 'Hind', sans-serif;
+  color: white;
+  font-size: 12px;
+  left: 218px;
+  top: 24px;
+}
+
+.organ-cover-area-mobile .white-ball {
+  left: 88px;
+  top: 28px;
+  position: absolute;
+  z-index: 100;
+  background-color: transparent;  
+  offset-path: path('M0 122.538462 4.83225806 122.538462 19.3290323 126 32.4451613 126 51.0441973 108.392652 68.6117167 97.9770379 66.0091212 86.9104478 69.9130145 84.9575201 69.9130145 78.4477612 78.3714498 73.2399541 80.3233964 57.6165327 84.2272896 49.804822 90.0831294 30.2755454 97.240267 5.53846154 98.716129 0 107 0');
+  offset-distance: 0%;
+  animation: mobile-whiteball 5s linear infinite forwards;
+  transform: rotate(59deg);
+}
+
+@keyframes mobile-whiteball {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.organ-cover-area-mobile .green-ball{
+  left: 90px;
+  top: 28px;
+  position: absolute;
+  z-index: 100;
+  background-color: transparent;  
+  offset-path: path('M0.333658854 128.675354 4.24183953 128.675354 19.8745622 131.924465 35.5072849 131.924465 57.6536421 111.779977 75.2404551 101.382822 72.6350013 90.3358452 76.543182 88.3863787 76.543182 81.8881569 85.0109068 76.6895794 86.9649972 61.0938472 90.8731778 53.295981 96.7354488 33.8013157 103.900447 9.10807292 104.686849 7.03483073 107.451172 7.03483073');
+  offset-distance: 0%;
+  transform: rotate(59deg);
+}
+
+.organ-cover-area-mobile .mobile-intro-div{
+  /*display: none;*/
+  background: url('../../mobile-background.png');
+  height: 210px;
+  padding: 20px;
+}
+
+.mobile-intro-div .intro-text{
+  width: auto;
+  font-size: 14px;
+}
+
+.mobile-intro-div .intro-text-title{
+  font-size: 18px;
+}
+
+.organ-cover-area-mobile .button-text{
+  border: 1px solid white;
+  box-sizing: border-box;
+  padding: 3px 10px;
+  color: #0061A1;
+  width: 90px;
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+  border-radius: 5px;
+  background-color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  position: absolute;
+  bottom: 20px;
+  left: 105px;
 }
 
 .article-title{
