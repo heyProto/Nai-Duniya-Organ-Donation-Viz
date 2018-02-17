@@ -38,6 +38,11 @@
               "type": "string",
               "title": "Description"
             },
+            "mobile_description": {
+              "id": "/properties/data/properties/introduction/properties/mobile_description",
+              "type": "string",
+              "title": "Mobile Description"
+            },
             "button_text": {
               "id": "/properties/data/properties/introduction/properties/button_text",
               "type": "string",

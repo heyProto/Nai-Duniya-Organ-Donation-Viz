@@ -278,7 +278,7 @@ export default class toOrganCoverVizCard extends React.Component {
           <div className="time-text"><span>{data.map_info.line_2_text}</span><br/>{data.map_info.line_2_time}</div>
           <div id="mobile-intro-div" className="mobile-intro-div">
             <div className="intro-text-title">{data.introduction.title}</div>
-            <div className="intro-text">{data.introduction.description}</div>
+            <div className="intro-text">{data.introduction.mobile_description}</div>
           </div>
           <div id="mobile-button" className="button-text" onClick={(e) => this.handleMobileClick(e)}><strong>{data.introduction.button_text}</strong></div>
         </div>

@@ -382,8 +382,9 @@
 .organ-cover-area-mobile .mobile-intro-div{
   /*display: none;*/
   background: url('../../mobile-background.png');
-  height: 210px;
+  height: 250px;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .mobile-intro-div .intro-text{
