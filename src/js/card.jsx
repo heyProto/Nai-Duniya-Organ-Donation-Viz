@@ -14,7 +14,73 @@ export default class toOrganCoverVizCard extends React.Component {
       optionalConfigJSON: {},
       optionalConfigSchemaJSON: undefined,
       languageTexts: undefined,
-      animation: true
+      animation: true,
+      points: [
+        {
+          "x": 1,
+          "y": 177
+        },
+        {
+          "x": 8,
+          "y": 177
+        },
+        {
+          "x": 29,
+          "y": 182
+        },
+        {
+          "x": 48,
+          "y": 182
+        },
+        {
+          "x":74.9425287, 
+          "y":156.567164
+        },
+        {
+          "x":100.390805,
+          "y":141.522388
+        },
+        {
+          "x":96.6206897, 
+          "y":125.537313
+        },
+        {
+          "x":102.275862, 
+          "y":122.716418
+        },
+        {
+          "x":102.275862, 
+          "y":113.313433 
+        },
+        {
+          "x":114.528736, 
+          "y":105.791045
+        },
+        {
+          "x":117.356322, 
+          "y":83.2238806
+        },
+        {
+          "x":123.011494, 
+          "y":71.9402985
+        },
+        {
+          "x":131.494253,
+          "y":43.7313433
+        },
+        {
+          "x":141.862069,
+          "y":8
+        },
+        {
+          "x":144, 
+          "y":0
+        },
+        {
+          "x":156, 
+          "y":0
+        }
+      ]
     };
 
     if (this.props.dataJSON) {
@@ -65,54 +131,54 @@ export default class toOrganCoverVizCard extends React.Component {
     if (this.state.animation){
       let path1 = document.querySelector('.white-line-path'),
         length1 = path1.getTotalLength();
-      path1.style.transition = path1.style.WebkitTransition ='none';
+      path1.style.transition = path1.style.transition ='none';
       path1.style.strokeDasharray = length1 + ' ' + length1;
       path1.style.strokeDashoffset = length1;
       path1.getBoundingClientRect();
-      path1.style.transition = path1.style.WebkitTransition ='stroke-dashoffset 5s linear';
+      path1.style.transition = path1.style.transition ='stroke-dashoffset 5s linear';
       path1.style.strokeDashoffset = '0';
 
       let path2 = document.querySelector('.green-line-path'),
         length2 = path2.getTotalLength();
-      path2.style.transition = path2.style.WebkitTransition ='none';
+      path2.style.transition = path2.style.transition ='none';
       path2.style.strokeDasharray = length2 + ' ' + length2;
       path2.style.strokeDashoffset = length2;
       path2.getBoundingClientRect();
-      path2.style.transition = path2.style.WebkitTransition ='stroke-dashoffset 2.5s linear';
+      path2.style.transition = path2.style.transition ='stroke-dashoffset 2.5s linear';
       path2.style.strokeDashoffset = '0';
 
       let circle = document.querySelector('.green-ball');
-        circle.style.transition = circle.style.WebkitTransition ='none';
+        circle.style.transition = circle.style.transition ='none';
         circle.style.offsetDistance = '0%'
         circle.getBoundingClientRect();
-        circle.style.transition = circle.style.WebkitTransition = 'offset-distance 2.5s linear';
+        circle.style.transition = circle.style.transition = 'offset-distance 2.5s linear';
         circle.style.offsetDistance = '100%';
 
       setInterval(function(){
         let path = document.querySelector('.white-line-path'),
           length = path.getTotalLength();
-        path.style.transition = path.style.WebkitTransition ='none';
+        path.style.transition = path.style.transition ='none';
         path.style.strokeDasharray = length + ' ' + length;
         path.style.strokeDashoffset = length;
         path.getBoundingClientRect();
-        path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 5s linear';
+        path.style.transition = path.style.transition = 'stroke-dashoffset 5s linear';
         path.style.strokeDashoffset = '0';
       }, 5000)
       setInterval(function(){
         let path = document.querySelector('.green-line-path'),
           length = path.getTotalLength();
-        path.style.transition = path.style.WebkitTransition ='none';
+        path.style.transition = path.style.transition ='none';
         path.style.strokeDasharray = length + ' ' + length;
         path.style.strokeDashoffset = length;
         path.getBoundingClientRect();
-        path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 2.5s linear';
+        path.style.transition = path.style.transition = 'stroke-dashoffset 2.5s linear';
         path.style.strokeDashoffset = '0';
 
         let circle = document.querySelector('.green-ball');
-        circle.style.transition = circle.style.WebkitTransition ='none';
+        circle.style.transition = circle.style.transition ='none';
         circle.style.offsetDistance = '0%'
         circle.getBoundingClientRect();
-        circle.style.transition = circle.style.WebkitTransition = 'offset-distance 2.5s linear';
+        circle.style.transition = circle.style.transition = 'offset-distance 2.5s linear';
         circle.style.offsetDistance = '100%';
       }, 5000)
       this.setState({
@@ -193,7 +259,6 @@ export default class toOrganCoverVizCard extends React.Component {
           <div className="source-location">अस्पताल</div>
           <svg className="green-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <path className="green-line-path" id="path-1" d="M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195"></path>
               <filter x="-5.5%" y="-3.6%" width="111.0%" height="109.4%" filterUnits="objectBoundingBox" id="filter-2">
                 <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
                 <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
@@ -205,11 +270,9 @@ export default class toOrganCoverVizCard extends React.Component {
               </filter>
             </defs>
             <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(-571.000000, -191.000000)">
-                <g id="Path-2">
-                    <use fill="black" fillOpacity="1" filter="url(#filter-2)" xlinkHref="#path-1"></use>
-                    <use stroke="#00FF83" strokeWidth="3" xlinkHref="#path-1"></use>
-                </g>
-            </g>
+              <path className="green-line-path" id="path-1" d="M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195" stroke="#00FF83" strokeWidth="3">
+              </path>
+            </g>              
           </svg>
           <img className="green-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
           <img className="airport" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/airport-icon.png"/>
@@ -255,23 +318,9 @@ export default class toOrganCoverVizCard extends React.Component {
           <img className="hospital" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/hospital-icon.png"/>
           <div className="source-location">अस्पताल</div>
           <svg className="green-line" width="116px" height="142px" viewBox="0 0 116 142" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <path className="green-line-path" id="path-1" d="M0.333658854 128.675354 4.24183953 128.675354 19.8745622 131.924465 35.5072849 131.924465 57.6536421 111.779977 75.2404551 101.382822 72.6350013 90.3358452 76.543182 88.3863787 76.543182 81.8881569 85.0109068 76.6895794 86.9649972 61.0938472 90.8731778 53.295981 96.7354488 33.8013157 103.900447 9.10807292 104.686849 7.03483073 107.451172 7.03483073"></path>
-              <filter x="-7.9%" y="-5.2%" width="115.9%" height="113.6%" filterUnits="objectBoundingBox" id="filter-2">
-                <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
-                <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
-                <feMorphology radius="1.5" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
-                <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
-                <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
-                <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-                <feColorMatrix values="0 0 0 0 0.330516582   0 0 0 0 0.330516582   0 0 0 0 0.330516582  0 0 0 0.543195199 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-              </filter>
-            </defs>
+            <defs></defs>
             <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                <g id="Path-2">
-                    <use fill="black" fillOpacity="1" filter="url(#filter-2)" xlinkHref="#path-1"></use>
-                    <use stroke="#00FF83" strokeWidth="3" xlinkHref="#path-1"></use>
-                </g>
+              <path className="green-line-path" id="path-1" d="M0.333658854 128.675354 4.24183953 128.675354 19.8745622 131.924465 35.5072849 131.924465 57.6536421 111.779977 75.2404551 101.382822 72.6350013 90.3358452 76.543182 88.3863787 76.543182 81.8881569 85.0109068 76.6895794 86.9649972 61.0938472 90.8731778 53.295981 96.7354488 33.8013157 103.900447 9.10807292 104.686849 7.03483073 107.451172 7.03483073" stroke="#00FF83" strokeWidth="3"></path> 
             </g>
           </svg>
           <img className="green-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>

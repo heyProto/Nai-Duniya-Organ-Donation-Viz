@@ -219,7 +219,6 @@
   offset-distance: 0%;
   animation: whiteball 5s linear infinite forwards;
   transform: rotate(59deg);
-  /*animation-timing-function: cubic-bezier(1,1,1,1);*/
 }
 
 .green-ball{
@@ -231,7 +230,6 @@
   offset-path: path('M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195');
   offset-distance: 0%;
   transform: rotate(59deg);
-  /*animation: greenball 2.5s linear infinite forwards;*/
 }
 
 @keyframes whiteball {
