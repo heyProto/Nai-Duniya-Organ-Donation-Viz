@@ -14,14 +14,14 @@
 
 .organ-cover-area .white-line{
   position: absolute;
-  top: 152px;
+  top: 143px;
   left: 148px;
 }
 
 .organ-cover-area .green-line{
   position: absolute;
-  top: 161px;
-  left: 143px;
+  top: 150px;
+  left: 131px;
 }
 
 .organ-selection{
@@ -209,8 +209,12 @@
   display: none;
 }
 
-.white-line-path{
+.organ-cover-area .white-line-path{
   transform: translate(-575px, -185px)
+}
+
+.organ-cover-area .green-line-path{
+  transform: translate(-568px, -190px)
 }
 
 .white-ball{  
@@ -272,14 +276,8 @@
 
 .organ-cover-area-mobile .green-line{
   left: 87px;
-  top: 30px;
+  top: 34px;
   position: absolute;
-}
-
-.organ-cover-area-mobile .white-line-path{
-  position: absolute;
-  left: 20px;
-  top: 10px;
 }
 
 .organ-cover-area-mobile .distance-text{

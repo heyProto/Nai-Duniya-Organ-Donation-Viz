@@ -55,131 +55,247 @@ export default class toOrganCoverVizCard extends React.Component {
       }));
     } else {
       this.setState({
-        description: this.props.desc
+        description: this.props.desc,
+        animation: this.props.animation
       })
       this.componentDidUpdate()
     }
   }
 
   componentDidUpdate() {
+    console.log(this.props.mode, this.state.animation, "mode")
     if (this.state.animation){
-      // let path1 = document.querySelector('.white-line-path'),
-      //   length1 = path1.getTotalLength();
-      // path1.style.transition = path1.style.transition ='none';
-      // path1.style.strokeDasharray = length1 + ' ' + length1;
-      // path1.style.strokeDashoffset = length1;
-      // path1.getBoundingClientRect();
-      // path1.style.transition = path1.style.transition ='stroke-dashoffset 5s linear';
-      // path1.style.strokeDashoffset = '0';
+      if (this.props.mode === "col16") {
+        // draw white line
+        console.log("col16")
+        let white_line = Snap("#white-line"); 
+        let myPathC = white_line.path("M576 364 583 364 604 369 623 369 649.942529 343.567164 675.390805 328.522388 671.62069 312.537313 677.275862 309.716418 677.275862 300.313433 689.528736 292.791045 692.356322 270.223881 698.011494 258.940299 706.494253 230.731343 716.862069 195 719 187 731 187").attr({
+          class: "white-line-path",
+          id: "path-2",
+          fill: "none",
+          strokeWidth: "3",
+          stroke: "#ffffff",
+          strokeDasharray: "9 9",
+          strokeDashOffset: "283.0320129394531"
+        });
+        let lenC = myPathC.getTotalLength();
 
-      let path2 = document.querySelector('.green-line-path'),
-        length2 = path2.getTotalLength();
-      path2.style.transition = path2.style.transition ='none';
-      path2.style.strokeDasharray = length2 + ' ' + length2;
-      path2.style.strokeDashoffset = length2;
-      path2.getBoundingClientRect();
-      path2.style.transition = path2.style.transition ='stroke-dashoffset 2.5s linear';
-      path2.style.strokeDashoffset = '0';
+        myPathC.attr({
+          stroke: '#fff',
+          strokeWidth: 3,
+          fill: 'none',
+          "stroke-dasharray": "283.0320129394531 283.0320129394531",
+          "stroke-dashoffset": "283.0320129394531"
+        }).animate({"stroke-dashoffset": 0}, 5000,mina.linear);
 
-      // let circle = document.querySelector('.green-ball');
-      //   circle.style.transition = circle.style.transition ='none';
-      //   circle.style.offsetDistance = '0%'
-      //   circle.getBoundingClientRect();
-      //   circle.style.transition = circle.style.transition = 'offset-distance 2.5s linear';
-      //   circle.style.offsetDistance = '100%';
+        // draw ambulance moving on white line
+   
+        let white_car = white_line.image("https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png");
 
-      // let white_obj = new Motion($("#white-obj"), {
-      //   path: 'M576 364 583 364 604 369 623 369 649.942529 343.567164 675.390805 328.522388 671.62069 312.537313 677.275862 309.716418 677.275862 300.313433 689.528736 292.791045 692.356322 270.223881 698.011494 258.940299 706.494253 230.731343 716.862069 195 719 187 731 187',
-      //   rotation: 59
-      // });
+        white_car.attr({
+          id:"white-obj",
+          class:"white-ball"
+        });  
 
-      // white_obj.to(1, {duration:5000, easing:'linear'})
-      var snapC = Snap("#white-line"); 
+        let white_line_group = white_line.g( white_car ),
+          movePoint;
 
-      var myPathC = snapC.path("M576 364 583 364 604 369 623 369 649.942529 343.567164 675.390805 328.522388 671.62069 312.537313 677.275862 309.716418 677.275862 300.313433 689.528736 292.791045 692.356322 270.223881 698.011494 258.940299 706.494253 230.731343 716.862069 195 719 187 731 187").attr({
-        class: "white-line-path",
-        id: "path-2",
-        fill: "none",
-        strokeWidth: "3",
-        stroke: "#ffffff",
-        strokeDasharray: "9 9",
-        strokeDashOffset: "283.0320129394531"
-      });
+        setTimeout( function() {
+          Snap.animate(0, lenC, function( value ) {
+            movePoint = myPathC.getPointAtLength( value );
+             white_line_group.transform( 't' + parseInt(movePoint.x - 585) + ',' + parseInt( movePoint.y - 198) + 'r' + (movePoint.alpha - 120));
+          }, 5000,mina.linear);
+        });
 
+        // animate white line and ambulance continuously
 
-    var lenC = myPathC.getTotalLength();
+        setInterval(function(){
+          myPathC.attr({
+            stroke: '#fff',
+            strokeWidth: 3,
+            fill: 'none',
+            "stroke-dasharray": "283.0320129394531 283.0320129394531",
+            "stroke-dashoffset": "283.0320129394531"
+          }).animate({"stroke-dashoffset": 0}, 5000,mina.linear);
 
-    myPathC.attr({
-      stroke: '#fff',
-      strokeWidth: 3,
-      fill: 'none',
-      // Draw Path
-      "stroke-dasharray": "283.0320129394531 283.0320129394531",
-      "stroke-dashoffset": "283.0320129394531"
-    }).animate({"stroke-dashoffset": 0}, 5000,mina.easeinout);
- 
-      var Triangle = snapC.image("https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png");
-      Triangle.attr({
-        id:"white-obj",
-        class:"white-ball"
-      });  
+          setTimeout( function() {
+            Snap.animate(0, lenC, function( value ) {
+              movePoint = myPathC.getPointAtLength( value );
+               white_line_group.transform( 't' + parseInt(movePoint.x - 585) + ',' + parseInt( movePoint.y - 198) + 'r' + (movePoint.alpha - 120));
+            }, 5000,mina.linear);
+          });
+        }, 5000)
 
-      var triangleGroup = snapC.g( Triangle ); // Group polyline
-      let movePoint;
-      setTimeout( function() {
-        Snap.animate(0, lenC, function( value ) {
-          // console.log(value, myPathC.getPointAtLength( value ))
-          movePoint = myPathC.getPointAtLength( value );
-           triangleGroup.transform( 't' + parseInt(movePoint.x - 585) + ',' + parseInt( movePoint.y - 198) + 'r' + (movePoint.alpha - 130));
-        }, 5000,mina.easeinout);
-      });
+        // draw green line
 
-      let green_obj = new Motion($("#green-obj"), {
-        path: 'M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195',
-        rotation: 59
-      });
+        let green_line = Snap("#green-line"); 
+        let myPath = green_line.path("M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195").attr({
+          class: "green-line-path",
+          id: "path-1",
+          fill: "none",
+          strokeWidth: "3",
+          stroke: "#00FF83",
+          strokeDasharray: "9 9",
+          strokeDashOffset: "283.0320129394531"
+        });
+        let len = myPath.getTotalLength();
 
-      green_obj.to(1, {duration:2500, easing:'linear'})
+        myPath.attr({
+          stroke: '#00FF83',
+          strokeWidth: 3,
+          fill: 'none',
+          "stroke-dasharray": "283.0320129394531 283.0320129394531",
+          "stroke-dashoffset": "283.0320129394531"
+        }).animate({"stroke-dashoffset": 0}, 2500,mina.linear);
+   
+        let green_car = green_line.image("https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png");
 
-      setInterval(function(){
-        // let path = document.querySelector('.white-line-path'),
-        //   length = path.getTotalLength();
-        // path.style.transition = path.style.transition ='none';
-        // path.style.strokeDasharray = length + ' ' + length;
-        // path.style.strokeDashoffset = length;
-        // path.getBoundingClientRect();
-        // path.style.transition = path.style.transition = 'stroke-dashoffset 5s linear';
-        // path.style.strokeDashoffset = '0';
+        green_car.attr({
+          id:"green-obj",
+          class:"green-ball"
+        });  
 
-        // let white_obj = new Motion($("#white-obj"), {
-        //   path: 'M576 364 583 364 604 369 623 369 649.942529 343.567164 675.390805 328.522388 671.62069 312.537313 677.275862 309.716418 677.275862 300.313433 689.528736 292.791045 692.356322 270.223881 698.011494 258.940299 706.494253 230.731343 716.862069 195 719 187 731 187',
-        //   rotation: 59
-        // });
-        // white_obj.to(1, {duration:5000, easing:'linear'})
-      }, 5000)
-      setInterval(function(){
-        let path = document.querySelector('.green-line-path'),
-          length = path.getTotalLength();
-        path.style.transition = path.style.transition ='none';
-        path.style.strokeDasharray = length + ' ' + length;
-        path.style.strokeDashoffset = length;
-        path.getBoundingClientRect();
-        path.style.transition = path.style.transition = 'stroke-dashoffset 2.5s linear';
-        path.style.strokeDashoffset = '0';
+        let green_line_group = green_line.g( green_car ),
+          movePoint1;
 
-        // let circle = document.querySelector('.green-ball');
-        // circle.style.transition = circle.style.transition ='none';
-        // circle.style.offsetDistance = '0%'
-        // circle.getBoundingClientRect();
-        // circle.style.transition = circle.style.transition = 'offset-distance 2.5s linear';
-        // circle.style.offsetDistance = '100%';
+        setTimeout( function() {
+          Snap.animate(0, lenC, function( value ) {
+            movePoint1 = myPath.getPointAtLength( value );
+             green_line_group.transform( 't' + parseInt(movePoint1.x - 577) + ',' + parseInt( movePoint1.y - 200) + 'r' + (movePoint1.alpha - 120));
+          }, 2500,mina.linear);
+        });
 
-        // let green_obj = new Motion($("#green-obj"), {
-        //   path: 'M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195',
-        //   rotation: 59
-        // });
-        // green_obj.to(1, {duration:2500, easing:'linear'})
-      }, 5000)
+        setInterval(function(){
+          myPath.attr({
+            stroke: '#00FF83',
+            strokeWidth: 3,
+            fill: 'none',
+            "stroke-dasharray": "283.0320129394531 283.0320129394531",
+            "stroke-dashoffset": "283.0320129394531"
+          }).animate({"stroke-dashoffset": 0}, 2500,mina.linear);
+
+          setTimeout( function() {
+            Snap.animate(0, lenC, function( value ) {
+              movePoint1 = myPath.getPointAtLength( value );
+               green_line_group.transform( 't' + parseInt(movePoint1.x - 577) + ',' + parseInt( movePoint1.y - 200) + 'r' + (movePoint1.alpha - 120));
+            }, 2500,mina.linear);
+          });
+        }, 5000)
+      } else {
+        console.log("col4")
+        // draw white line
+        let white_line = Snap("#white-line"); 
+        let myPathC = white_line.path("M0 122.538462 4.83225806 122.538462 19.3290323 126 32.4451613 126 51.0441973 108.392652 68.6117167 97.9770379 66.0091212 86.9104478 69.9130145 84.9575201 69.9130145 78.4477612 78.3714498 73.2399541 80.3233964 57.6165327 84.2272896 49.804822 90.0831294 30.2755454 97.240267 5.53846154 98.716129 0 107 0").attr({
+          class: "white-line-path",
+          id: "path-2",
+          fill: "none",
+          strokeWidth: "3",
+          stroke: "#ffffff",
+          strokeDasharray: "9 9",
+          strokeDashOffset: "195.697021484375"
+        });
+        let lenC = myPathC.getTotalLength();
+
+        myPathC.attr({
+          stroke: '#fff',
+          strokeWidth: 3,
+          fill: 'none',
+          "stroke-dasharray": "195.697021484375 195.697021484375",
+          "stroke-dashoffset": "195.697021484375"
+        }).animate({"stroke-dashoffset": 0}, 5000,mina.linear);
+
+        // draw ambulance moving on white line
+   
+        let white_car = white_line.image("https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png");
+
+        white_car.attr({
+          id:"white-obj",
+          class:"white-ball"
+        });  
+
+        let white_line_group = white_line.g( white_car ),
+          movePoint;
+
+        setTimeout( function() {
+          Snap.animate(0, lenC, function( value ) {
+            movePoint = myPathC.getPointAtLength( value );
+             white_line_group.transform( 't' + parseInt(movePoint.x - 10) + ',' + parseInt( movePoint.y - 15) + 'r' + (movePoint.alpha - 120));
+          }, 5000,mina.linear);
+        });
+
+        // animate white line and ambulance continuously
+        setInterval(function(){
+          myPathC.attr({
+            stroke: '#fff',
+            strokeWidth: 3,
+            fill: 'none',
+            "stroke-dasharray": "195.697021484375 195.697021484375",
+            "stroke-dashoffset": "195.697021484375"
+          }).animate({"stroke-dashoffset": 0}, 5000,mina.linear);
+
+          setTimeout( function() {
+            Snap.animate(0, lenC, function( value ) {
+              movePoint = myPathC.getPointAtLength( value );
+               white_line_group.transform( 't' + parseInt(movePoint.x - 10) + ',' + parseInt( movePoint.y - 15) + 'r' + (movePoint.alpha - 120));
+            }, 5000,mina.linear);
+          });
+        }, 5000)
+
+        // draw green line
+        let green_line = Snap("#green-line"); 
+        let myPath = green_line.path("M0.333658854 128.675354 4.24183953 128.675354 19.8745622 131.924465 35.5072849 131.924465 57.6536421 111.779977 75.2404551 101.382822 72.6350013 90.3358452 76.543182 88.3863787 76.543182 81.8881569 85.0109068 76.6895794 86.9649972 61.0938472 90.8731778 53.295981 96.7354488 33.8013157 103.900447 9.10807292 104.686849 7.03483073 107.451172 7.03483073").attr({
+          class: "green-line-path",
+          id: "path-1",
+          fill: "none",
+          strokeWidth: "3",
+          stroke: "#00FF83",
+          strokeDasharray: "9 9",
+          strokeDashOffset: "195.697021484375"
+        });
+        let len = myPath.getTotalLength();
+
+        myPath.attr({
+          stroke: '#00FF83',
+          strokeWidth: 3,
+          fill: 'none',
+          "stroke-dasharray": "195.697021484375 195.697021484375",
+          "stroke-dashoffset": "195.697021484375"
+        }).animate({"stroke-dashoffset": 0}, 2500,mina.linear);
+   
+        let green_car = green_line.image("https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png");
+
+        green_car.attr({
+          id:"green-obj",
+          class:"green-ball"
+        });  
+
+        let green_line_group = green_line.g( green_car ),
+          movePoint1;
+
+        setTimeout( function() {
+          Snap.animate(0, lenC, function( value) {
+            movePoint1 = myPath.getPointAtLength( value );
+             green_line_group.transform( 't' + parseInt(movePoint1.x - 6) + ',' + parseInt( movePoint1.y - 20) + 'r' + (movePoint1.alpha - 120));
+          }, 2500,mina.linear);
+        });
+
+        setInterval(function(){
+          myPath.attr({
+            stroke: '#00FF83',
+            strokeWidth: 3,
+            fill: 'none',
+            "stroke-dasharray": "195.697021484375 195.697021484375",
+            "stroke-dashoffset": "195.697021484375"
+          }).animate({"stroke-dashoffset": 0}, 2500,mina.linear);
+
+          setTimeout( function() {
+            Snap.animate(0, lenC, function( value ) {
+              movePoint1 = myPath.getPointAtLength( value );
+               green_line_group.transform( 't' + parseInt(movePoint1.x - 6) + ',' + parseInt( movePoint1.y - 20) + 'r' + (movePoint1.alpha - 120));
+            }, 2500,mina.linear);
+          });
+        }, 5000)
+      }
       this.setState({
         animation: false
       })
@@ -246,33 +362,20 @@ export default class toOrganCoverVizCard extends React.Component {
         <div className="organ-cover-area">
           <div className="white-time-text"><span>{data.map_info.line_1_text}</span><br/>{data.map_info.line_1_time}</div>
           <img src={data.cover_image.desktop} className="desktop-cover-image"/>
-          <svg id="white-line" className="white-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <svg id="white-line" className="white-line" width="165px" height="210px" viewBox="0 0 165 198" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs></defs>
             <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(-576.000000, -185.000000)">
         
             </g>
           </svg>
-          <img id="white-obj" className="white-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
           <img className="hospital" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/hospital-icon.png"/>
           <div className="source-location">अस्पताल</div>
-          <svg className="green-line" width="165px" height="194px" viewBox="0 0 165 194" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <filter x="-5.5%" y="-3.6%" width="111.0%" height="109.4%" filterUnits="objectBoundingBox" id="filter-2">
-                <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
-                <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
-                <feMorphology radius="1.5" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
-                <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
-                <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
-                <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-                <feColorMatrix values="0 0 0 0 0.330516582   0 0 0 0 0.330516582   0 0 0 0 0.330516582  0 0 0 0.543195199 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-              </filter>
-            </defs>
+          <svg id="green-line" className="green-line" width="185px" height="210px" viewBox="0 0 165 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs></defs>
             <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(-571.000000, -191.000000)">
-              <path className="green-line-path" id="path-1" d="M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195" stroke="#00FF83" strokeWidth="3">
-              </path>
+              
             </g>              
           </svg>
-          <img id="green-obj" className="green-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
           <img className="airport" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/airport-icon.png"/>
           <div className="destination-location">हवाई अड्डा</div>
           <div className="distance-text">{data.map_info.distance}</div>
@@ -305,23 +408,20 @@ export default class toOrganCoverVizCard extends React.Component {
         <div className="organ-cover-area-mobile">
           <div className="white-time-text"><span>{data.map_info.line_1_text}</span><br/>{data.map_info.line_1_time}</div>
           <img src={data.cover_image.mobile} className="mobile-cover-image"/>
-          <svg className="white-line" width="116px" height="142px" viewBox="0 0 116 142" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <svg id="white-line" className="white-line" width="116px" height="150px" viewBox="0 0 116 142" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs></defs>
             <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(0.000000, 0.000000)">
-              <path className="white-line-path" id="path-2" stroke="#FFFFFF" strokeWidth="3" d="M0 122.538462 4.83225806 122.538462 19.3290323 126 32.4451613 126 51.0441973 108.392652 68.6117167 97.9770379 66.0091212 86.9104478 69.9130145 84.9575201 69.9130145 78.4477612 78.3714498 73.2399541 80.3233964 57.6165327 84.2272896 49.804822 90.0831294 30.2755454 97.240267 5.53846154 98.716129 0 107 0" strokeDasharray="283.0320129394531, 283.0320129394531" strokeDashoffset="283.0320129394531">
-              </path>
+        
             </g>
           </svg>
-          <img id="white-obj" className="white-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
           <img className="hospital" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/hospital-icon.png"/>
           <div className="source-location">अस्पताल</div>
-          <svg className="green-line" width="116px" height="142px" viewBox="0 0 116 142" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <svg id="green-line" className="green-line" width="116px" height="142px" viewBox="0 0 116 142" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs></defs>
             <g id="organ_cover_2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-              <path className="green-line-path" id="path-1" d="M0.333658854 128.675354 4.24183953 128.675354 19.8745622 131.924465 35.5072849 131.924465 57.6536421 111.779977 75.2404551 101.382822 72.6350013 90.3358452 76.543182 88.3863787 76.543182 81.8881569 85.0109068 76.6895794 86.9649972 61.0938472 90.8731778 53.295981 96.7354488 33.8013157 103.900447 9.10807292 104.686849 7.03483073 107.451172 7.03483073" stroke="#00FF83" strokeWidth="3"></path> 
+
             </g>
           </svg>
-          <img id="green-obj" className="green-ball" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/amb-icon.png"/>
           <img className="airport" src="https://cdn.protograph.pykih.com/9e058a64d0949988645e/img/airport-icon.png"/>
           <div className="destination-location">हवाई अड्डा</div>
           <div className="distance-text">{data.map_info.distance}</div>
@@ -369,4 +469,7 @@ export default class toOrganCoverVizCard extends React.Component {
 }
 
     // <path className="white-line-path" id="path-2" stroke="#FFFFFF" strokeWidth="3" d="M576 364 583 364 604 369 623 369 649.942529 343.567164 675.390805 328.522388 671.62069 312.537313 677.275862 309.716418 677.275862 300.313433 689.528736 292.791045 692.356322 270.223881 698.011494 258.940299 706.494253 230.731343 716.862069 195 719 187 731 187" strokeDasharray="283.0320129394531, 283.0320129394531" strokeDashoffset="283.0320129394531">
+    //           </path>
+
+    // <path className="green-line-path" id="path-1" d="M575 371.014925 580.655172 371.014925 603.275862 375.716418 625.896552 375.716418 657.942529 346.567164 683.390805 331.522388 679.62069 315.537313 685.275862 312.716418 685.275862 303.313433 697.528736 295.791045 700.356322 273.223881 706.011494 261.940299 714.494253 233.731343 724.862069 198 726 195 730 195" stroke="#00FF83" strokeWidth="3">
     //           </path>

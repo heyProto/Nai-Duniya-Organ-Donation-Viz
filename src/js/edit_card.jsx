@@ -283,6 +283,7 @@ export default class editToStinkCoverVizCard extends React.Component {
                     optionalConfigJSON={this.state.optionalConfigJSON}
                     optionalConfigSchemaJSON={this.state.optionalConfigSchemaJSON}
                     desc={this.state.description}
+                    animation={true}
                   />
                 </div>
               </div>
