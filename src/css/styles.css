@@ -131,8 +131,8 @@
 
 .airport{
   position: absolute;
-  left: 113px;
-  top: 304px;
+  left: 300px;
+  top: 124px;
 }
 
 .source-location{
@@ -146,8 +146,8 @@
 
 .hospital{
   position: absolute;
-  left: 300px;
-  top: 124px;
+  left: 113px;
+  top: 304px;
 }
 
 .destination-location{

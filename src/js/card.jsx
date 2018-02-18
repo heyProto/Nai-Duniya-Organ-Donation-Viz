@@ -127,10 +127,13 @@ export default class toOrganCoverVizCard extends React.Component {
   }
 
   handleMobileClick(e){
-    document.getElementById('mobile-intro-div').style.top =0;
+    document.getElementById('mobile-intro-div').style.top = 0;
     document.getElementById('mobile-intro-div').style.position = 'absolute';
     document.getElementById('mobile-intro-div').style.zIndex = 100;
+  }
 
+  handleBackClick(e){
+    document.getElementById('mobile-intro-div').style.top = '250px';
   }
 
   handleHeartClick(e){
@@ -279,6 +282,7 @@ export default class toOrganCoverVizCard extends React.Component {
           <div id="mobile-intro-div" className="mobile-intro-div">
             <div className="intro-text-title">{data.introduction.title}</div>
             <div className="intro-text">{data.introduction.mobile_description}</div>
+            <div id="back-button" className="button-text" onClick={(e) => this.handleBackClick(e)}><strong>वापस</strong></div>
           </div>
           <div id="mobile-button" className="button-text" onClick={(e) => this.handleMobileClick(e)}><strong>{data.introduction.button_text}</strong></div>
         </div>
