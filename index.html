@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset = "UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <title>toOrganCoverVizCard</title>
     <link href="https://fonts.googleapis.com/css?family=Sarala" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./src/css/styles.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <style>
-      .test-card {
-        margin: 10px 20px;
-      }
+        .test-card {
+            margin: 10px 20px;
+        }
     </style>
     <div id="card" class="test-card"></div>
     <!-- // <script src="./lib/js/jquery-3.1.1.min.js"></script> -->
     <script src="./lib/js/snap-svg.min.js"></script>
-    <script src = "./dist/0.0.1/card.min.js"></script>
+    <script src="./dist/0.0.1/card.min.js"></script>
     <script type="text/javascript">
-    var x = new ProtoGraph.Card.toOrganCoverVizCard();
-    x.init({
-      selector: document.querySelector('#card'),
-      data_url: "dist/0.0.1/sample.json",
-      schema_url: 'dist/0.0.1/schema.json',
-      configuration_url: "./dist/0.0.1/configuration_sample.json",
-      configuration_schema_url: './dist/0.0.1/configuration_schema.json'
-    });
-    // x.renderCol16();
-    x.renderCol4();
+        var x = new ProtoGraph.Card.toOrganCoverVizCard();
+        x.init({
+            selector: document.querySelector('#card'),
+            data_url: "dist/0.0.1/sample.json",
+            schema_url: 'dist/0.0.1/schema.json',
+            site_config_url: 'dist/0.0.1/site.json'
+        });
+        // x.renderCol16();
+        x.renderCol4();
     </script>
-  </body>
+</body>
+
 </html>
